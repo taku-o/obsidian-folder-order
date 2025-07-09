@@ -1,0 +1,60 @@
+# === Obsidian Plugin Specific ===
+# Don't include the compiled main.js file in the repo.
+# They should be uploaded to GitHub releases instead.
+main.js
+data.json
+
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# === TypeScript/Build ===
+dist/
+build/
+*.js.map
+*.d.ts
+*.tsbuildinfo
+
+# === Environment ===
+.env
+.env.*
+!.env.example
+
+# === IDEs ===
+.vscode/
+.idea/
+*.iml
+*.code-workspace
+
+# === OS Specific ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# === Logs and Temporary ===
+*.log
+*.tmp
+*.swp
+coverage/
+.nyc_output
+
+# === Obsidian Vault (if applicable) ===
+.obsidian/
+.trash/
