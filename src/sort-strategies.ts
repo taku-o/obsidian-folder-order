@@ -74,7 +74,7 @@ export class AlphabeticalAscStrategy extends BaseSortStrategy {
   }
 
   getDisplayName(): string {
-    return 'Name (A→Z)';
+    return 'ファイル名 (アルファベット順)';
   }
 }
 
@@ -93,7 +93,7 @@ export class AlphabeticalDescStrategy extends BaseSortStrategy {
   }
 
   getDisplayName(): string {
-    return 'Name (Z→A)';
+    return 'ファイル名 (アルファベット逆順)';
   }
 }
 
@@ -111,7 +111,7 @@ export class ModifiedDateAscStrategy extends BaseSortStrategy {
   }
 
   getDisplayName(): string {
-    return 'Modified (Oldest)';
+    return '更新日 (古い順)';
   }
 
   private getFolderModifiedTime(folder: TFolder): number {
@@ -143,7 +143,7 @@ export class ModifiedDateDescStrategy extends BaseSortStrategy {
   }
 
   getDisplayName(): string {
-    return 'Modified (Newest)';
+    return '更新日 (新しい順)';
   }
 
   private getFolderModifiedTime(folder: TFolder): number {
@@ -175,7 +175,7 @@ export class CreatedDateAscStrategy extends BaseSortStrategy {
   }
 
   getDisplayName(): string {
-    return 'Created (Oldest)';
+    return '作成日 (古い順)';
   }
 
   private getFolderCreatedTime(folder: TFolder): number {
@@ -207,7 +207,7 @@ export class CreatedDateDescStrategy extends BaseSortStrategy {
   }
 
   getDisplayName(): string {
-    return 'Created (Newest)';
+    return '作成日 (新しい順)';
   }
 
   private getFolderCreatedTime(folder: TFolder): number {

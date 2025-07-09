@@ -1,55 +1,55 @@
-/* Folder Order Plugin Styles */
+/* Folder Order Plugin Styles - Obsidian Native Style */
 
 .folder-order-sort-menu {
   display: flex;
   align-items: center;
-  padding: 4px 8px;
+  padding: 8px 16px;
   border-bottom: 1px solid var(--background-modifier-border);
   background: var(--background-primary);
   gap: 8px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .folder-order-sort-menu .sort-label {
-  color: var(--text-muted);
+  color: var(--text-normal);
   font-weight: 500;
   white-space: nowrap;
 }
 
-.folder-order-sort-menu .sort-dropdown {
-  background: var(--background-primary);
+.folder-order-sort-menu .sort-button {
+  background: var(--background-secondary);
   border: 1px solid var(--background-modifier-border);
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 12px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
   color: var(--text-normal);
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
   min-width: 120px;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
-.folder-order-sort-menu .sort-dropdown:hover {
-  border-color: var(--interactive-accent);
+.folder-order-sort-menu .sort-button:hover {
+  background: var(--background-modifier-hover);
 }
 
-.folder-order-sort-menu .sort-dropdown:focus {
+.folder-order-sort-menu .sort-button:focus {
   outline: none;
-  border-color: var(--interactive-accent);
-  box-shadow: 0 0 0 2px var(--interactive-accent-rgb, 123, 108, 217) rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 2px var(--interactive-accent);
 }
 
 .folder-order-sort-menu .sort-refresh-btn {
-  background: transparent;
-  border: none;
-  padding: 2px 4px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 4px 6px;
   cursor: pointer;
-  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .folder-order-sort-menu .sort-refresh-btn:hover {
@@ -61,8 +61,8 @@
 }
 
 .folder-order-sort-menu .sort-refresh-btn svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   color: var(--text-muted);
 }
 
@@ -70,12 +70,6 @@
 .folder-order-sorting {
   opacity: 0.6;
   transition: opacity 0.2s ease;
-}
-
-/* Error state */
-.folder-order-error {
-  border-color: var(--text-error) !important;
-  background: var(--background-modifier-error);
 }
 
 /* Loading state */
@@ -87,27 +81,36 @@
 /* Mobile responsive */
 @media (max-width: 768px) {
   .folder-order-sort-menu {
-    padding: 2px 4px;
-    gap: 4px;
+    padding: 6px 12px;
+    gap: 6px;
   }
   
-  .folder-order-sort-menu .sort-dropdown {
+  .folder-order-sort-menu .sort-button {
     min-width: 100px;
-    font-size: 11px;
+    font-size: 12px;
+    padding: 3px 6px;
   }
   
   .folder-order-sort-menu .sort-label {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
 
 /* Dark theme adjustments */
-.theme-dark .folder-order-sort-menu .sort-dropdown {
+.theme-dark .folder-order-sort-menu .sort-button {
   border-color: var(--background-modifier-border);
 }
 
-.theme-dark .folder-order-sort-menu .sort-dropdown:hover {
-  border-color: var(--interactive-accent);
+.theme-dark .folder-order-sort-menu .sort-button:hover {
+  background: var(--background-modifier-hover);
+}
+
+.theme-dark .folder-order-sort-menu .sort-refresh-btn {
+  border-color: var(--background-modifier-border);
+}
+
+.theme-dark .folder-order-sort-menu .sort-refresh-btn:hover {
+  background: var(--background-modifier-hover);
 }
 
 /* High contrast mode */
@@ -116,14 +119,18 @@
     border-bottom: 2px solid var(--background-modifier-border);
   }
   
-  .folder-order-sort-menu .sort-dropdown {
+  .folder-order-sort-menu .sort-button {
+    border-width: 2px;
+  }
+  
+  .folder-order-sort-menu .sort-refresh-btn {
     border-width: 2px;
   }
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .folder-order-sort-menu .sort-dropdown,
+  .folder-order-sort-menu .sort-button,
   .folder-order-sort-menu .sort-refresh-btn,
   .folder-order-sorting {
     transition: none;
@@ -131,6 +138,11 @@
 }
 
 /* Focus visible for keyboard navigation */
+.folder-order-sort-menu .sort-button:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
 .folder-order-sort-menu .sort-refresh-btn:focus-visible {
   outline: 2px solid var(--interactive-accent);
   outline-offset: 2px;
@@ -155,23 +167,82 @@
   margin-top: 4px;
 }
 
-/* Accessibility improvements */
-.folder-order-sort-menu [aria-label] {
-  position: relative;
+/* Obsidian menu style integration */
+.menu {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  padding: 4px 0;
+  box-shadow: var(--shadow-s);
+  z-index: 1000;
 }
 
-.folder-order-sort-menu [aria-label]:hover::after {
-  content: attr(aria-label);
+.menu .menu-item {
+  padding: 6px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-normal);
+  transition: background-color 0.1s ease;
+}
+
+.menu .menu-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.menu .menu-item .menu-item-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-accent);
+}
+
+.menu .menu-item .menu-item-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Error notice styling */
+.folder-order-error-notice {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--background-modifier-error);
+  color: var(--text-error);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  z-index: 1000;
+  max-width: 300px;
+  box-shadow: var(--shadow-s);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Tooltip styling */
+.folder-order-tooltip {
   position: absolute;
-  bottom: -25px;
-  left: 50%;
-  transform: translateX(-50%);
   background: var(--background-tooltip);
   color: var(--text-tooltip);
-  padding: 2px 6px;
-  border-radius: 3px;
+  padding: 4px 8px;
+  border-radius: 4px;
   font-size: 11px;
   white-space: nowrap;
-  z-index: 1000;
+  z-index: 1001;
   pointer-events: none;
+  box-shadow: var(--shadow-s);
 }
