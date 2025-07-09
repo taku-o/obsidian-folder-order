@@ -1,0 +1,11 @@
+{
+  "id": "obsidian-folder-order",
+  "name": "Folder Order Controller",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Control folder display order in Obsidian's file explorer with various sorting options",
+  "author": "Claude Code",
+  "authorUrl": "https://github.com/anthropics/claude-code",
+  "fundingUrl": "https://github.com/sponsors/anthropics",
+  "isDesktopOnly": false
+}

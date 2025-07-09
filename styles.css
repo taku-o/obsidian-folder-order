@@ -1,0 +1,177 @@
+/* Folder Order Plugin Styles */
+
+.folder-order-sort-menu {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  gap: 8px;
+  font-size: 12px;
+}
+
+.folder-order-sort-menu .sort-label {
+  color: var(--text-muted);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.folder-order-sort-menu .sort-dropdown {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: var(--text-normal);
+  cursor: pointer;
+  min-width: 120px;
+  transition: border-color 0.2s ease;
+}
+
+.folder-order-sort-menu .sort-dropdown:hover {
+  border-color: var(--interactive-accent);
+}
+
+.folder-order-sort-menu .sort-dropdown:focus {
+  outline: none;
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px var(--interactive-accent-rgb, 123, 108, 217) rgba(0, 0, 0, 0.1);
+}
+
+.folder-order-sort-menu .sort-refresh-btn {
+  background: transparent;
+  border: none;
+  padding: 2px 4px;
+  cursor: pointer;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.folder-order-sort-menu .sort-refresh-btn:hover {
+  background: var(--background-modifier-hover);
+}
+
+.folder-order-sort-menu .sort-refresh-btn:active {
+  background: var(--background-modifier-active);
+}
+
+.folder-order-sort-menu .sort-refresh-btn svg {
+  width: 14px;
+  height: 14px;
+  color: var(--text-muted);
+}
+
+/* Animation for sorting */
+.folder-order-sorting {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+/* Error state */
+.folder-order-error {
+  border-color: var(--text-error) !important;
+  background: var(--background-modifier-error);
+}
+
+/* Loading state */
+.folder-order-loading {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .folder-order-sort-menu {
+    padding: 2px 4px;
+    gap: 4px;
+  }
+  
+  .folder-order-sort-menu .sort-dropdown {
+    min-width: 100px;
+    font-size: 11px;
+  }
+  
+  .folder-order-sort-menu .sort-label {
+    font-size: 11px;
+  }
+}
+
+/* Dark theme adjustments */
+.theme-dark .folder-order-sort-menu .sort-dropdown {
+  border-color: var(--background-modifier-border);
+}
+
+.theme-dark .folder-order-sort-menu .sort-dropdown:hover {
+  border-color: var(--interactive-accent);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .folder-order-sort-menu {
+    border-bottom: 2px solid var(--background-modifier-border);
+  }
+  
+  .folder-order-sort-menu .sort-dropdown {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .folder-order-sort-menu .sort-dropdown,
+  .folder-order-sort-menu .sort-refresh-btn,
+  .folder-order-sorting {
+    transition: none;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+.folder-order-sort-menu .sort-refresh-btn:focus-visible {
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 2px;
+}
+
+/* Settings page styling */
+.folder-order-settings h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--text-normal);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.folder-order-settings .setting-item {
+  margin-bottom: 16px;
+}
+
+.folder-order-settings .setting-item-description {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Accessibility improvements */
+.folder-order-sort-menu [aria-label] {
+  position: relative;
+}
+
+.folder-order-sort-menu [aria-label]:hover::after {
+  content: attr(aria-label);
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background-tooltip);
+  color: var(--text-tooltip);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+}
